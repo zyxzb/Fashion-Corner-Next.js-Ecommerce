@@ -5,12 +5,14 @@ import { convertDocToObj } from '@/lib/utils';
 import { Metadata } from 'next';
 import Icons from './icons/Icons';
 import CardSlider from '@/components/cardSlider/CardSlider';
+import ReadMore from '@/components/readMore/ReadMore';
+import Text from '@/components/readMore/Text';
 
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_APP_NAME || 'Fullstack Next.js Store',
   description:
     process.env.NEXT_PUBLIC_APP_DESC ||
-    'Fullstack Next.js Store - Server Components,MongoDB, Next Auth, Tailwind, Zustand',
+    'Fullstack Next.js Store - Server Components, MongoDB, Next Auth, Tailwind, Zustand',
 };
 
 const HomePage = async () => {
@@ -22,24 +24,21 @@ const HomePage = async () => {
       <div>
         <Carousel featuredProducts={featuredProducts} />
       </div>
-      {/* text */}
       <div className='flex flex-col gap-8 md:flex-row'>
         <div className='flex-1'>
-          <h1 className='text-nowrap text-4xl font-semibold md:text-6xl'>
+          <p className='text-nowrap text-4xl font-semibold md:text-6xl'>
             Simply Unique/ <br /> Simply Better.
-          </h1>
+          </p>
         </div>
         <div className='flex flex-1 items-center'>
           <div>
             <span className='font-bold'>Fashion Corner</span> is a gift &
-            clothes store based in HCMC, <br className='hidden sm:inline' />{' '}
-            Vietnam. Est since 2019.{' '}
+            clothes store based in HCMC, <br className='hidden sm:inline' />
+            Vietnam. Est since 2019.
           </div>
         </div>
       </div>
-      {/* icons */}
       <Icons />
-      {/* latest products */}
       <div>
         <h2 className='my-2 text-2xl md:my-4'>Latest Products</h2>
         <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-4'>
@@ -51,8 +50,10 @@ const HomePage = async () => {
           ))}
         </div>
       </div>
-      {/* Card slider */}
       <CardSlider products={latestProducts} />
+      <ReadMore>
+        <Text />
+      </ReadMore>
     </div>
   );
 };

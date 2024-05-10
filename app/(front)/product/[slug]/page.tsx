@@ -27,8 +27,8 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className='my-2'>
-      <div className='my-4 py-1'>
-        <Link href='/'>{`<- Back to Products`}</Link>
+      <div className='my-4'>
+        <Link href='/' className='btn'>{`<- Back to Products`}</Link>
       </div>
       <div className='grid gap-4 md:grid-cols-4'>
         <div className='relative aspect-square md:col-span-2'>
@@ -46,9 +46,6 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
             <li>
               <h1 className='text-xl'>{product.name}</h1>
             </li>
-            {/* <li>
-              {product.rating} of {product.numReviews} reviews
-            </li> */}
             <li>
               <Rating
                 value={product.rating}

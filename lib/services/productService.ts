@@ -10,7 +10,7 @@ const getLatest = cache(async () => {
     .sort({ _id: -1 })
     .limit(6)
     .lean();
-  // lean to convert to js object
+  // lean -> convert to js object
   return products as Product[];
 });
 
@@ -79,10 +79,10 @@ const getByQuery = cache(
       sort === 'lowest'
         ? { price: 1 }
         : sort === 'highest'
-        ? { price: -1 }
-        : sort === 'toprated'
-        ? { rating: -1 }
-        : { _id: -1 };
+          ? { price: -1 }
+          : sort === 'toprated'
+            ? { rating: -1 }
+            : { _id: -1 };
 
     const categories = await ProductModel.find().distinct('category');
     const products = await ProductModel.find(

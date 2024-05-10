@@ -22,7 +22,7 @@ const ProductItem = ({ product }: { product: Product }) => {
       </figure>
       <div className='card-body'>
         <Link href={`/product/${product.slug}`}>
-          <h2 className='card-title font-normal'>{product.name}</h2>
+          <h3 className='card-title font-normal'>{product.name}</h3>
         </Link>
         <Rating value={product.rating} caption={`(${product.name})`} />
         <p>{product.brand}</p>

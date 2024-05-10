@@ -22,7 +22,10 @@ const CartDetails = () => {
       <h1 className='py-4 text-2xl'>Shopping Cart</h1>
       {items.length === 0 ? (
         <div>
-          Cart is empty <Link href='/'>Go shopping</Link>
+          <p className='mb-2'>Cart is empty :(</p>
+          <Link href='/' className='btn'>
+            Go shopping
+          </Link>
         </div>
       ) : (
         <div className='grid md:grid-cols-4 md:gap-5'>
