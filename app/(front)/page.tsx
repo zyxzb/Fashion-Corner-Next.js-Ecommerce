@@ -1,12 +1,15 @@
+import { Metadata } from 'next';
+
+import CardSlider from '@/components/cardSlider/CardSlider';
 import Carousel from '@/components/carousel/carousel';
 import ProductItem from '@/components/products/ProductItem';
-import productService from '@/lib/services/productService';
-import { convertDocToObj } from '@/lib/utils';
-import { Metadata } from 'next';
-import Icons from './icons/Icons';
-import CardSlider from '@/components/cardSlider/CardSlider';
 import ReadMore from '@/components/readMore/ReadMore';
 import Text from '@/components/readMore/Text';
+import { CarouselItem } from '@/components/ui/carousel';
+import productService from '@/lib/services/productService';
+import { convertDocToObj } from '@/lib/utils';
+
+import Icons from './icons/Icons';
 
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_APP_NAME || 'Fullstack Next.js Store',
@@ -50,7 +53,17 @@ const HomePage = async () => {
           ))}
         </div>
       </div>
-      <CardSlider products={latestProducts} />
+      <CardSlider>
+        {/*Wrap for SSR */}
+        {latestProducts.map((product) => (
+          <CarouselItem
+            key={product.slug}
+            className='sm:basis-1/2 md:basis-1/3 lg:basis-1/4'
+          >
+            <ProductItem product={convertDocToObj(product)} />
+          </CarouselItem>
+        ))}
+      </CardSlider>
       <ReadMore>
         <Text />
       </ReadMore>

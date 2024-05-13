@@ -1,14 +1,15 @@
 'use client';
 
-import useSWRMutation from 'swr/mutation';
-import useSWR from 'swr';
-import toast from 'react-hot-toast';
 import Link from 'next/link';
-import { ValidationRule, useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import { ValidationRule, useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import useSWR from 'swr';
+import useSWRMutation from 'swr/mutation';
+
 import { User } from '@/lib/models/UserModel';
 import { formatId } from '@/lib/utils';
-import { useRouter } from 'next/navigation';
 
 export default function UserEditForm({ userId }: { userId: string }) {
   const { data: user, error } = useSWR(`/api/admin/users/${userId}`);

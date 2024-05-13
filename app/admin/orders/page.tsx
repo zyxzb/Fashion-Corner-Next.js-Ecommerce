@@ -1,4 +1,5 @@
 import AdminLayout from '@/components/admin/AdminLayout';
+
 import Orders from './Orders';
 
 export const metadata = {

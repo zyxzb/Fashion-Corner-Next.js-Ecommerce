@@ -1,7 +1,8 @@
+import Link from 'next/link';
+
 import ProductItem from '@/components/products/ProductItem';
 import { Rating } from '@/components/products/Rating';
 import productServices from '@/lib/services/productService';
-import Link from 'next/link';
 
 const sortOrders = ['newest', 'lowest', 'highest', 'rating'];
 const prices = [

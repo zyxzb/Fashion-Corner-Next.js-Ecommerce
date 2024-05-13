@@ -1,9 +1,10 @@
 'use client';
 
-import CheckoutSteps from '@/components/checkout/CheckoutSteps';
-import useCartService from '@/lib/hooks/useCartStore';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
+import CheckoutSteps from '@/components/checkout/CheckoutSteps';
+import useCartService from '@/lib/hooks/useCartStore';
 
 const Form = () => {
   const router = useRouter();

@@ -1,4 +1,3 @@
-import React from 'react';
 import OrderDetails from './OrderDetails';
 
 export const generateMetadata = ({ params }: { params: { id: string } }) => {

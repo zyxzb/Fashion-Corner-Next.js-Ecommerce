@@ -1,12 +1,13 @@
 'use client';
 
-import { Product } from '@/lib/models/ProductModel';
-import { formatId } from '@/lib/utils';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
+
+import { Product } from '@/lib/models/ProductModel';
+import { formatId } from '@/lib/utils';
 
 export default function Products() {
   const { data: products, error } = useSWR(`/api/admin/products`);

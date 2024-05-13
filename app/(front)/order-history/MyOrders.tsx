@@ -1,10 +1,11 @@
 'use client';
 
-import { Order } from '@/lib/models/OrderModel';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import useSWR from 'swr';
+
+import { Order } from '@/lib/models/OrderModel';
 
 const MyOrders = () => {
   const router = useRouter();

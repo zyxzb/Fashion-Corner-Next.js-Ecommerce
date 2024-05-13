@@ -1,4 +1,5 @@
 import AdminLayout from '@/components/admin/AdminLayout';
+
 import Products from './Products';
 
 const AdminProductsPge = () => {

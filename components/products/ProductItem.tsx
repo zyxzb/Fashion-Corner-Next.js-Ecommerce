@@ -3,7 +3,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Rating } from './Rating';
 
-const ProductItem = ({ product }: { product: Product }) => {
+import { getPlaiceholder } from 'plaiceholder';
+
+const ProductItem = async ({ product }: { product: Product }) => {
+  const buffer = await fetch(product.image).then(async (res) =>
+    Buffer.from(await res.arrayBuffer()),
+  );
+
+  const { base64 } = await getPlaiceholder(buffer);
+
   return (
     <div className='card mb-4 bg-base-300'>
       <figure>
@@ -14,6 +22,8 @@ const ProductItem = ({ product }: { product: Product }) => {
           <Image
             src={product.image}
             alt={product.name}
+            placeholder='blur'
+            blurDataURL={base64}
             width={350}
             height={350}
             className='h-full w-full object-cover'

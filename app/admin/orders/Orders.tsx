@@ -1,8 +1,9 @@
 'use client';
 
-import { Order } from '@/lib/models/OrderModel';
 import Link from 'next/link';
 import useSWR from 'swr';
+
+import { Order } from '@/lib/models/OrderModel';
 
 export default function Orders() {
   const { data: orders, error, isLoading } = useSWR(`/api/admin/orders`);

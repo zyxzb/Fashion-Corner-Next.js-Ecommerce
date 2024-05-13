@@ -3,7 +3,6 @@
 import { useSearchParams } from 'next/navigation';
 import useSWR from 'swr';
 import { useState } from 'react';
-// import { useRouter } from 'next/navigation';
 import { useRouter } from 'next-nprogress-bar';
 
 export const SearchBox = () => {
@@ -23,7 +22,7 @@ export const SearchBox = () => {
 
   if (error) return error.message;
 
-  if (isLoading) return 'Loading...';
+  if (isLoading) return <div className='skeleton flex h-12 w-[371px]'></div>;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +35,7 @@ export const SearchBox = () => {
         <select
           name='category'
           defaultValue={formCategory}
-          className='join-item select select-bordered w-[100px]'
+          className='join-item select select-bordered w-[90px]'
           onChange={(e) => setFormCategory(e.target.value)}
         >
           <option value='all'>All</option>
@@ -47,13 +46,13 @@ export const SearchBox = () => {
           ))}
         </select>
         <input
-          className='input join-item input-bordered w-48'
+          className='input join-item input-bordered w-40 sm:w-44'
           placeholder='Search'
           defaultValue={q}
           name='q'
           onChange={(e) => setFormQuery(e.target.value)}
         />
-        <button className='btn join-item' type='submit'>
+        <button className='btn join-item input-bordered' type='submit'>
           Search
         </button>
       </div>

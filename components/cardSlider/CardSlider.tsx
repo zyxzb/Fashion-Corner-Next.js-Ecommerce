@@ -5,19 +5,16 @@ import { useState, useEffect } from 'react';
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
 } from '@/components/ui/carousel';
-import ProductItem from '../products/ProductItem';
-import { convertDocToObj } from '@/lib/utils';
 
 interface IProducts {
-  products: any[];
+  children: React.ReactNode;
 }
 
-const CardSlider = ({ products }: IProducts) => {
+const CardSlider = ({ children }: IProducts) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -38,14 +35,15 @@ const CardSlider = ({ products }: IProducts) => {
   return (
     <Carousel setApi={setApi} opts={{ loop: true }}>
       <CarouselContent>
-        {products.map((product) => (
+        {/* {products.map((product) => (
           <CarouselItem
             key={product.slug}
             className='sm:basis-1/2 md:basis-1/3 lg:basis-1/4'
           >
             <ProductItem product={convertDocToObj(product)} />
           </CarouselItem>
-        ))}
+        ))} */}
+        {children}
       </CarouselContent>
       <CarouselPrevious className='absolute left-4 top-1/2' disabled={false} />
       <CarouselNext className='absolute right-4 top-1/2' disabled={false} />

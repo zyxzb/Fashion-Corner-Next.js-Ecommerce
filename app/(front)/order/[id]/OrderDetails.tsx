@@ -1,13 +1,14 @@
 'use client';
 
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
-import { OrderItem } from '@/lib/models/OrderModel';
-import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 import toast from 'react-hot-toast';
 import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
+
+import { OrderItem } from '@/lib/models/OrderModel';
 
 interface IOrderDetails {
   orderId: string;

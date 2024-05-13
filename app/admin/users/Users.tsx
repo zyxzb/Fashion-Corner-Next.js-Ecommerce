@@ -1,11 +1,12 @@
 'use client';
 
-import { User } from '@/lib/models/UserModel';
-import { formatId } from '@/lib/utils';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
 import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
+
+import { User } from '@/lib/models/UserModel';
+import { formatId } from '@/lib/utils';
 
 export default function Users() {
   const { data: users, error } = useSWR(`/api/admin/users`);

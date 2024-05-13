@@ -1,10 +1,11 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import AddToCart from '@/components/products/AddToCart';
+import Link from 'next/link';
+import { getPlaiceholder } from 'plaiceholder';
 
+import AddToCart from '@/components/products/AddToCart';
+import { Rating } from '@/components/products/Rating';
 import productService from '@/lib/services/productService';
 import { convertDocToObj } from '@/lib/utils';
-import { Rating } from '@/components/products/Rating';
 
 export const generateMetadata = async ({
   params,
@@ -25,6 +26,12 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
     return <div>Product not found</div>;
   }
 
+  const buffer = await fetch(product.image).then(async (res) =>
+    Buffer.from(await res.arrayBuffer()),
+  );
+
+  const { base64 } = await getPlaiceholder(buffer);
+
   return (
     <div className='my-2'>
       <div className='my-4'>
@@ -35,6 +42,8 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
           <Image
             src={product.image}
             alt={product.name}
+            placeholder='blur'
+            blurDataURL={base64}
             width={640}
             height={640}
             sizes='100vw'
@@ -46,6 +55,7 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
             <li>
               <h1 className='text-xl'>{product.name}</h1>
             </li>
+
             <li>
               <Rating
                 value={product.rating}
