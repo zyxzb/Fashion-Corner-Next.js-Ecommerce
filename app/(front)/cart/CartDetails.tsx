@@ -1,10 +1,11 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import useCartService from '@/lib/hooks/useCartStore';
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+import useCartService from '@/lib/hooks/useCartStore';
 
 const CartDetails = () => {
   const { items, itemsPrice, decrease, increase } = useCartService();

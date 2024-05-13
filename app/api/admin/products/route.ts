@@ -29,7 +29,8 @@ export const POST = auth(async (req: any) => {
   const product = new ProductModel({
     name: 'sample name',
     slug: 'sample-name-' + Math.random(),
-    image: '/images/shirt1.jpg',
+    image:
+      'https://res.cloudinary.com/dqxlehni0/image/upload/v1715622109/No_Image_Available_kbdno1.jpg',
     price: 0,
     category: 'sample category',
     brand: 'sample brand',

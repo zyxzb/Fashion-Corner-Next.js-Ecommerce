@@ -1,12 +1,12 @@
 'use client';
 
+import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { SWRConfig } from 'swr';
 
 import { cartStore } from '@/lib/hooks/useCartStore';
 import useLayoutService from '@/lib/hooks/useLayout';
-import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 
 const ClientProvider = ({ children }: { children: React.ReactNode }) => {
   const { theme } = useLayoutService();
@@ -45,7 +45,7 @@ const ClientProvider = ({ children }: { children: React.ReactNode }) => {
         },
       }}
     >
-      <div data-theme={selectedTheme} className='min-h-screen flex flex-col'>
+      <div data-theme={selectedTheme} className='flex min-h-screen flex-col'>
         <Toaster toastOptions={{ className: 'toaster-con' }} />
         <ProgressBar />
         {children}

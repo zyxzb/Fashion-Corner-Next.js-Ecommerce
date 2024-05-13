@@ -1,5 +1,7 @@
-import { auth } from '@/lib/auth';
 import { SessionProvider } from 'next-auth/react';
+
+import { auth } from '@/lib/auth';
+
 import ClientProvider from './ClientProvider';
 
 const Providers = async ({ children }: { children: React.ReactNode }) => {

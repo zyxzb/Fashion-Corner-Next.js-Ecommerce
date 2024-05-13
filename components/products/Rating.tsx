@@ -34,7 +34,7 @@ export const Rating = ({
   );
 
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex flex-col flex-wrap gap-2'>
       <div className='flex gap-1'>
         {value >= 1 ? <Full /> : value >= 0.5 ? <Half /> : <Empty />}
         {value >= 2 ? <Full /> : value >= 1.5 ? <Half /> : <Empty />}
@@ -43,7 +43,7 @@ export const Rating = ({
         {value >= 5 ? <Full /> : value >= 4.5 ? <Half /> : <Empty />}
       </div>
 
-      {caption && <span className='text-sm'>{caption}</span>}
+      {caption && <div className='text-xs'>{caption}</div>}
     </div>
   );
 };

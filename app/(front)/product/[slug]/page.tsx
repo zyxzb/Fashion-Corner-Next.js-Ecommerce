@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { getPlaiceholder } from 'plaiceholder';
 
 import AddToCart from '@/components/products/AddToCart';
@@ -13,6 +14,11 @@ export const generateMetadata = async ({
   params: { slug: string };
 }) => {
   const product = await productService.getBySlug(params.slug);
+
+  if (!product) {
+    return notFound();
+  }
+
   return {
     title: product.name,
     description: product.description,
@@ -23,7 +29,7 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
   const product = await productService.getBySlug(params.slug);
 
   if (!product) {
-    return <div>Product not found</div>;
+    return notFound();
   }
 
   const buffer = await fetch(product.image).then(async (res) =>
@@ -55,7 +61,6 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
             <li>
               <h1 className='text-xl'>{product.name}</h1>
             </li>
-
             <li>
               <Rating
                 value={product.rating}

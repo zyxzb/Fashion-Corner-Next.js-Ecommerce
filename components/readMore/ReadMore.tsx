@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
+
+import { cn } from '@/lib/utils';
 
 const ReadMore = ({ children }: { children: React.ReactNode }) => {
   const [isMore, setIsMore] = useState(false);

@@ -1,9 +1,10 @@
-import { Product } from '@/lib/models/ProductModel';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Rating } from './Rating';
-
 import { getPlaiceholder } from 'plaiceholder';
+
+import { Product } from '@/lib/models/ProductModel';
+
+import { Rating } from './Rating';
 
 const ProductItem = async ({ product }: { product: Product }) => {
   const buffer = await fetch(product.image).then(async (res) =>
@@ -32,10 +33,12 @@ const ProductItem = async ({ product }: { product: Product }) => {
       </figure>
       <div className='card-body'>
         <Link href={`/product/${product.slug}`}>
-          <h3 className='card-title font-normal'>{product.name}</h3>
+          <h3 className='card-title line-clamp-1 font-normal'>
+            {product.name}
+          </h3>
         </Link>
         <Rating value={product.rating} caption={`(${product.name})`} />
-        <p>{product.brand}</p>
+        <p className='line-clamp-1'>{product.brand}</p>
         <div className='card-actions flex items-center justify-between'>
           <span className='text-2xl'>${product.price}</span>
         </div>

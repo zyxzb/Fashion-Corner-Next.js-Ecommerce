@@ -1,4 +1,5 @@
 import { cache } from 'react';
+
 import dbConnect from '@/lib/dbConnect';
 import ProductModel, { Product } from '@/lib/models/ProductModel';
 
@@ -8,9 +9,17 @@ const getLatest = cache(async () => {
   await dbConnect();
   const products = await ProductModel.find({})
     .sort({ _id: -1 })
-    .limit(6)
-    .lean();
-  // lean -> convert to js object
+    .limit(8)
+    .lean(); // Converts the MongoDB documents to plain JavaScript objects
+  return products as Product[];
+});
+
+const getTopRated = cache(async () => {
+  await dbConnect();
+  const products = await ProductModel.find({})
+    .sort({ rating: -1 }) // Sort by rating in descending order
+    .limit(8)
+    .lean(); // Converts the MongoDB documents to plain JavaScript objects
   return products as Product[];
 });
 
@@ -128,6 +137,7 @@ const productService = {
   getBySlug,
   getByQuery,
   getCategories,
+  getTopRated,
 };
 
 export default productService;

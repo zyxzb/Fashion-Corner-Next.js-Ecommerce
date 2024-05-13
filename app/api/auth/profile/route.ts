@@ -1,7 +1,8 @@
+import bcrypt from 'bcryptjs';
+
 import { auth } from '@/lib/auth';
 import dbConnect from '@/lib/dbConnect';
 import UserModel from '@/lib/models/UserModel';
-import bcrypt from 'bcryptjs';
 
 export const PUT = auth(async (req) => {
   if (!req.auth) {

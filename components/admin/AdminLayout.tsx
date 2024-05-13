@@ -1,5 +1,6 @@
-import { auth } from '@/lib/auth';
 import Link from 'next/link';
+
+import { auth } from '@/lib/auth';
 
 const AdminLayout = async ({
   activeItem = 'dashboard',

@@ -1,9 +1,10 @@
 'use client';
 
-import useCartService from '@/lib/hooks/useCartStore';
-import { OrderItem } from '@/lib/models/OrderModel';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
+import useCartService from '@/lib/hooks/useCartStore';
+import { OrderItem } from '@/lib/models/OrderModel';
 
 const AddToCart = ({ item }: { item: OrderItem }) => {
   const router = useRouter();

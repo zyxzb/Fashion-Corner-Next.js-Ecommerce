@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 const HomePage = async () => {
   const featuredProducts = await productService.getFeatured();
   const latestProducts = await productService.getLatest();
+  const topRated = await productService.getTopRated();
 
   return (
     <div className='my-8 flex flex-col gap-4 md:gap-16'>
@@ -53,17 +54,20 @@ const HomePage = async () => {
           ))}
         </div>
       </div>
-      <CardSlider>
-        {/*Wrap for SSR */}
-        {latestProducts.map((product) => (
-          <CarouselItem
-            key={product.slug}
-            className='sm:basis-1/2 md:basis-1/3 lg:basis-1/4'
-          >
-            <ProductItem product={convertDocToObj(product)} />
-          </CarouselItem>
-        ))}
-      </CardSlider>
+      <div>
+        <h2 className='my-2 text-2xl md:my-4'>Top Rated</h2>
+        <CardSlider>
+          {/*Wrap for SSR */}
+          {topRated.map((product) => (
+            <CarouselItem
+              key={product.slug}
+              className='sm:basis-1/2 md:basis-1/3 lg:basis-1/4'
+            >
+              <ProductItem product={convertDocToObj(product)} />
+            </CarouselItem>
+          ))}
+        </CardSlider>
+      </div>
       <ReadMore>
         <Text />
       </ReadMore>

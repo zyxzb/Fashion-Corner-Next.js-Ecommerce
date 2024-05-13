@@ -1,12 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Product } from '@/lib/models/ProductModel';
-
-interface IFeaturedProducts {
-  featuredProducts: Product[];
-}
-
 import {
   Carousel as SCarousel,
   CarouselContent,
@@ -14,6 +8,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import { Product } from '@/lib/models/ProductModel';
+
+interface IFeaturedProducts {
+  featuredProducts: Product[];
+}
 
 const Carousel = ({ featuredProducts }: IFeaturedProducts) => {
   return (

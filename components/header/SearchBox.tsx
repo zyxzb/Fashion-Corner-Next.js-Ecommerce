@@ -1,9 +1,9 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import useSWR from 'swr';
-import { useState } from 'react';
 import { useRouter } from 'next-nprogress-bar';
+import { useState } from 'react';
+import useSWR from 'swr';
 
 export const SearchBox = () => {
   const searchParams = useSearchParams();

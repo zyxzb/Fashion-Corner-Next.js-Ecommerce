@@ -1,5 +1,6 @@
-import { auth } from '@/lib/auth';
 import cloudinary from 'cloudinary';
+
+import { auth } from '@/lib/auth';
 
 export const POST = auth(async (req: any) => {
   if (!req.auth || !req.auth.user?.isAdmin) {

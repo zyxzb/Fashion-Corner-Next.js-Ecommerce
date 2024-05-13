@@ -1,7 +1,8 @@
+import { AlignJustify } from 'lucide-react';
 import Link from 'next/link';
+
 import Menu from './Menu';
 import { SearchBox } from './SearchBox';
-import { AlignJustify } from 'lucide-react';
 
 const Header = () => {
   return (
