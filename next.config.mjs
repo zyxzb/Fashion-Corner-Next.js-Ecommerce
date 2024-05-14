@@ -14,6 +14,7 @@ const nextConfig = {
         hostname: 'localhost',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
   },
 };
 
