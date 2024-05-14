@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 
 import CardSlider from '@/components/cardSlider/CardSlider';
 import Carousel from '@/components/carousel/carousel';
+import Categories from '@/components/categories/Categories';
 import ProductItem from '@/components/products/ProductItem';
 import ReadMore from '@/components/readMore/ReadMore';
 import Text from '@/components/readMore/Text';
@@ -42,6 +43,7 @@ const HomePage = async () => {
           </div>
         </div>
       </div>
+      <Categories />
       <Icons />
       <div>
         <h2 className='my-2 text-2xl md:my-4'>Latest Products</h2>

@@ -161,7 +161,7 @@ export default async function SearchPage({
         </div>
         <div>
           <div className='py-2 text-xl'>Customer Review</div>
-          <ul>
+          <ul className='flex flex-col gap-1'>
             <li>
               <Link
                 href={getFilterUrl({ r: 'all' })}
@@ -180,7 +180,7 @@ export default async function SearchPage({
                     `${r}` === rating && 'link-primary'
                   }`}
                 >
-                  <Rating caption={' & up'} value={r}></Rating>
+                  <Rating caption={' & up'} value={r} />
                 </Link>
               </li>
             ))}

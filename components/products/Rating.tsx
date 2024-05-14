@@ -1,9 +1,13 @@
+import { cn } from '@/lib/utils';
+
 export const Rating = ({
   value,
   caption,
+  isCard,
 }: {
   value: number;
   caption: string;
+  isCard?: boolean;
 }) => {
   const Full = () => (
     <svg
@@ -34,7 +38,10 @@ export const Rating = ({
   );
 
   return (
-    <div className='flex flex-col flex-wrap gap-2'>
+    <div
+      className={cn(`flex flex-wrap gap-2 ${isCard && 'flex-col'} ${!isCard && 'items-center'}
+    `)}
+    >
       <div className='flex gap-1'>
         {value >= 1 ? <Full /> : value >= 0.5 ? <Half /> : <Empty />}
         {value >= 2 ? <Full /> : value >= 1.5 ? <Half /> : <Empty />}
