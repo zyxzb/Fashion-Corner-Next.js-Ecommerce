@@ -8,7 +8,7 @@ import Header from '@/components/header/Header';
 import Providers from '@/components/Providers';
 import Sidebar from '@/components/Sidebar';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Fashion Corner',

@@ -31,6 +31,7 @@ const Carousel = ({ featuredProducts }: IFeaturedProducts) => {
                   blurDataURL={product.banner!}
                   placeholder='blur'
                   sizes='(max-width: 1500px) 100vw, 1500px'
+                  priority
                 />
               </Link>
             </div>

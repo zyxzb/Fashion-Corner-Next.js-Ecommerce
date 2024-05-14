@@ -15,7 +15,7 @@ const Categories = () => {
       >
         <Image
           src={Shirts}
-          alt='Handbags'
+          alt='Shirts'
           width={500}
           height={500}
           className='h-full w-full object-cover'
@@ -25,7 +25,7 @@ const Categories = () => {
         <Overlay category='Shirts' />
       </Link>
       <Link
-        href='/search?category=Pants'
+        href='/search?category=Shirts'
         className='group relative col-span-2 overflow-hidden'
       >
         <Image
