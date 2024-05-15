@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FashionCorner - Next.js 14 Fullstack Ecommerce App
 
-## Getting Started
+Features:
 
-First, run the development server:
+- Tailwind design + DaisyUI, Shadcn/ui 
+- Typescript
+- MongoDB integration
+- Cloudinary integration
+- NProgress integration
+- React Hook Form
+- Admin dashboard
+- SEO Friendly Application - (SSR)
+- Plaiceholder blurred images
+- PayPay integration (Stripe will be added soon) 
+- Server Side Pagination
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+##  [Visit project url](https://fashion-corner.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="center" width="100%">
+  <img src="public/readme/Fashion-Corner-Fullstack-Next-js-Store.webp" alt="Next.js 14 Fullstack Ecommerce App - Home page light mode" title="screen1" />
+</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<p align="center" width="100%">
+  <img src="public/readme/Fashion-Corner-Fullstack-Next-js-Store-dark.webp" alt="Next.js 14 Fullstack Ecommerce App - Home page dark mode" title="screen2" />
+</p>
