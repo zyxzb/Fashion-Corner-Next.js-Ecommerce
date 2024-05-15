@@ -40,7 +40,11 @@ const Menu = () => {
             <Sun className='swap-on' />
             <Moon className='swap-off' />
           </label>
-          <Link href='/cart' className='relative mr-1'>
+          <Link
+            href='/cart'
+            className='relative mr-1'
+            aria-label='Shopping Cart'
+          >
             <ShoppingCart />
             <span className='absolute -right-4 -top-4'>
               {items.length !== 0 && (

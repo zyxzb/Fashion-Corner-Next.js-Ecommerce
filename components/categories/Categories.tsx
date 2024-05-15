@@ -15,7 +15,7 @@ const Categories = () => {
       >
         <Image
           src={Shirts}
-          alt='Shirts'
+          alt='Collection of shirts'
           width={500}
           height={500}
           className='h-full w-full object-cover'
@@ -30,7 +30,7 @@ const Categories = () => {
       >
         <Image
           src={Pants}
-          alt='Pants'
+          alt='Collection of pants'
           width={500}
           height={500}
           className='h-full w-full object-cover'
@@ -45,7 +45,7 @@ const Categories = () => {
       >
         <Image
           src={Handbags}
-          alt='Handbags'
+          alt='Collection of handbags'
           width={500}
           height={500}
           className='h-full w-full object-cover'
