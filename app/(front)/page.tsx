@@ -3,14 +3,13 @@ import { Metadata } from 'next';
 import CardSlider from '@/components/cardSlider/CardSlider';
 import Carousel from '@/components/carousel/carousel';
 import Categories from '@/components/categories/Categories';
+import Icons from '@/components/icons/Icons';
 import ProductItem from '@/components/products/ProductItem';
 import ReadMore from '@/components/readMore/ReadMore';
 import Text from '@/components/readMore/Text';
 import { CarouselItem } from '@/components/ui/carousel';
 import productService from '@/lib/services/productService';
 import { convertDocToObj } from '@/lib/utils';
-
-import Icons from './icons/Icons';
 
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_APP_NAME || 'Fullstack Next.js Store',
