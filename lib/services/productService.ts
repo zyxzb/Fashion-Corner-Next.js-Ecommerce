@@ -23,13 +23,14 @@ const getTopRated = cache(async () => {
   return products as Product[];
 });
 
-const getFeatured = cache(async () => {
+// intentionally disable Next.js Cache to better demo
+const getFeatured = async () => {
   await dbConnect();
   const products = await ProductModel.find({ isFeatured: true })
     .limit(3)
     .lean();
   return products as Product[];
-});
+};
 
 const getBySlug = cache(async (slug: string) => {
   await dbConnect();

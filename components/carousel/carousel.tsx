@@ -8,13 +8,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { Product } from '@/lib/models/ProductModel';
+import productService from '@/lib/services/productService';
+import { delay } from '@/lib/utils';
 
-interface IFeaturedProducts {
-  featuredProducts: Product[];
-}
+const Carousel = async () => {
+  await delay(3000);
+  const featuredProducts = await productService.getFeatured();
 
-const Carousel = ({ featuredProducts }: IFeaturedProducts) => {
   return (
     <SCarousel opts={{ loop: true }}>
       <CarouselContent>
@@ -45,3 +45,7 @@ const Carousel = ({ featuredProducts }: IFeaturedProducts) => {
 };
 
 export default Carousel;
+
+export const CarouselSkeleton = () => {
+  return <div className='skeleton h-[304px] w-full rounded-lg lg:h-[536px]' />;
+};

@@ -1,15 +1,15 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
-import CardSlider from '@/components/cardSlider/CardSlider';
-import Carousel from '@/components/carousel/carousel';
+import Carousel, { CarouselSkeleton } from '@/components/carousel/carousel';
 import Categories from '@/components/categories/Categories';
 import Icons from '@/components/icons/Icons';
-import ProductItem from '@/components/products/ProductItem';
+import ProductItems, {
+  ProductItemsSkeleton,
+} from '@/components/products/ProductItems';
 import ReadMore from '@/components/readMore/ReadMore';
 import Text from '@/components/readMore/Text';
-import { CarouselItem } from '@/components/ui/carousel';
-import productService from '@/lib/services/productService';
-import { convertDocToObj } from '@/lib/utils';
+import Slider from '@/components/slider/Slider';
 
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_APP_NAME || 'Fullstack Next.js Store',
@@ -18,15 +18,13 @@ export const metadata: Metadata = {
     'Fullstack Next.js Store - Server Components, MongoDB, Next Auth, Tailwind, Zustand',
 };
 
-const HomePage = async () => {
-  const featuredProducts = await productService.getFeatured();
-  const latestProducts = await productService.getLatest();
-  const topRated = await productService.getTopRated();
-
+const HomePage = () => {
   return (
     <div className='my-8 flex flex-col gap-4 md:gap-16'>
       <div>
-        <Carousel featuredProducts={featuredProducts} />
+        <Suspense fallback={<CarouselSkeleton />}>
+          <Carousel />
+        </Suspense>
       </div>
       <div className='flex flex-col gap-8 md:flex-row'>
         <div className='flex-1'>
@@ -44,31 +42,17 @@ const HomePage = async () => {
       </div>
       <Categories />
       <Icons />
-      <div>
-        <h2 className='my-2 text-2xl md:my-4'>Latest Products</h2>
-        <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-4'>
-          {latestProducts.map((product) => (
-            <ProductItem
-              key={product.slug}
-              product={convertDocToObj(product)}
-            />
-          ))}
-        </div>
-      </div>
-      <div>
-        <h2 className='my-2 text-2xl md:my-4'>Top Rated</h2>
-        <CardSlider>
-          {/*Wrap for SSR */}
-          {topRated.map((product) => (
-            <CarouselItem
-              key={product.slug}
-              className='sm:basis-1/2 md:basis-1/3 lg:basis-1/4'
-            >
-              <ProductItem product={convertDocToObj(product)} />
-            </CarouselItem>
-          ))}
-        </CardSlider>
-      </div>
+
+      <Suspense
+        fallback={<ProductItemsSkeleton qty={8} name='Latest Products' />}
+      >
+        <ProductItems />
+      </Suspense>
+
+      <Suspense fallback={<ProductItemsSkeleton qty={4} name='Top Rated' />}>
+        <Slider />
+      </Suspense>
+
       <ReadMore>
         <Text />
       </ReadMore>

@@ -21,3 +21,6 @@ export const formatNumber = (x: number) => {
 export const formatId = (x: string) => {
   return `..${x.substring(20, 24)}`;
 };
+
+export const delay = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
